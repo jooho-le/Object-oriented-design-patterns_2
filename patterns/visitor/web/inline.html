@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Visitor Pattern Demo</title>
+    <style>
+      body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+      .wrap { max-width: 900px; margin: 60px auto; text-align: center; }
+      h1 { font-weight: 600; color: #2c3e50; }
+      button { background: #ef476f; color: #fff; border: 0; padding: 10px 16px; border-radius: 8px; cursor: pointer; }
+      button:hover { filter: brightness(0.95); }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Visitor Pattern</h1>
+      <button id="btn">패턴 테스트</button>
+      <p>브라우저 콘솔에서 방문(visit) 로그를 확인하세요.</p>
+    </div>
+    <script type="module">
+      class ElementA { accept(v) { v.visitA(this) } info() { return 'A' } }
+      class ElementB { accept(v) { v.visitB(this) } info() { return 'B' } }
+      class Visitor { visitA(e) { console.log(`Visited ${e.info()}`) } visitB(e) { console.log(`Visited ${e.info()}`) } }
+      const run = () => { const v = new Visitor(); [new ElementA(), new ElementB()].forEach(e => e.accept(v)) }
+      document.getElementById('btn').addEventListener('click', run)
+    </script>
+  </body>
+  </html>
+

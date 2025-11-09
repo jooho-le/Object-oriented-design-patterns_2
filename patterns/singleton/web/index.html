@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TypeScript Singleton Demo</title>
+    <style>
+      body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+      .wrap { max-width: 900px; margin: 60px auto; text-align: center; }
+      h1 { font-weight: 600; color: #2c3e50; }
+      button { background: #64b687; color: #fff; border: 0; padding: 10px 16px; border-radius: 8px; cursor: pointer; }
+      button:hover { filter: brightness(0.95); }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>TypeScript Singleton Demo</h1>
+      <button id="btn-test">Singleton 테스트</button>
+      <p>브라우저 콘솔(Developer Tools)에서 로그를 확인하세요.</p>
+    </div>
+
+    <!-- ESM 출력물 로드 -->
+    <script type="module" src="../web-dist/main.js"></script>
+  </body>
+  </html>

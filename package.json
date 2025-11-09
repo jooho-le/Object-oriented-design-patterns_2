@@ -1,0 +1,30 @@
+{
+  "name": "ts-singleton-examples",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "build": "echo 'Use per-pattern builds'",
+    "build:singleton": "tsc -p patterns/singleton/node/tsconfig.json",
+    "build:singleton:web": "tsc -p patterns/singleton/web/tsconfig.json",
+    "start:singleton": "node patterns/singleton/node/dist/index.js all",
+    "start:singleton:eager": "node patterns/singleton/node/dist/index.js eager",
+    "start:singleton:static": "node patterns/singleton/node/dist/index.js static",
+    "start:singleton:lazy": "node patterns/singleton/node/dist/index.js lazy",
+    "start:singleton:module": "node patterns/singleton/node/dist/index.js module",
+    "build:factory": "tsc -p patterns/factory-method/node/tsconfig.json",
+    "start:factory": "node patterns/factory-method/node/dist/index.js",
+    "build:adapter": "tsc -p patterns/adapter/node/tsconfig.json",
+    "start:adapter": "node patterns/adapter/node/dist/index.js",
+    "build:decorator": "tsc -p patterns/decorator/node/tsconfig.json",
+    "start:decorator": "node patterns/decorator/node/dist/index.js",
+    "build:observer": "tsc -p patterns/observer/node/tsconfig.json",
+    "start:observer": "node patterns/observer/node/dist/index.js",
+    "build:visitor": "tsc -p patterns/visitor/node/tsconfig.json",
+    "start:visitor": "node patterns/visitor/node/dist/index.js"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "typescript": "^5.9.3"
+  }
+}

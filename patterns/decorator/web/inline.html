@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Decorator Pattern Demo</title>
+    <style>
+      body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+      .wrap { max-width: 900px; margin: 60px auto; text-align: center; }
+      h1 { font-weight: 600; color: #2c3e50; }
+      button { background: #f0a93d; color: #fff; border: 0; padding: 10px 16px; border-radius: 8px; cursor: pointer; }
+      button:hover { filter: brightness(0.95); }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Decorator Pattern</h1>
+      <button id="btn">패턴 테스트</button>
+      <p>브라우저 콘솔에서 결과를 확인하세요.</p>
+    </div>
+    <script type="module">
+      class ConcreteComponent { operation() { return 'Base' } }
+      class Decorator { constructor(wrappee) { this.wrappee = wrappee } operation() { return this.wrappee.operation() } }
+      class ConcreteDecoratorA extends Decorator { operation() { return `A(${super.operation()})` } }
+      class ConcreteDecoratorB extends Decorator { operation() { return `B(${super.operation()})` } }
+      const run = () => {
+        const base = new ConcreteComponent()
+        const decorated = new ConcreteDecoratorB(new ConcreteDecoratorA(base))
+        console.log(decorated.operation())
+      }
+      document.getElementById('btn').addEventListener('click', run)
+    </script>
+  </body>
+  </html>
+

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Adapter Pattern Demo</title>
+    <style>
+      body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+      .wrap { max-width: 900px; margin: 60px auto; text-align: center; }
+      h1 { font-weight: 600; color: #2c3e50; }
+      button { background: #8a4df0; color: #fff; border: 0; padding: 10px 16px; border-radius: 8px; cursor: pointer; }
+      button:hover { filter: brightness(0.95); }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>Adapter Pattern</h1>
+      <button id="btn">패턴 테스트</button>
+      <p>브라우저 콘솔에서 결과를 확인하세요.</p>
+    </div>
+    <script type="module">
+      class Adaptee { specificRequest() { return ']--Legacy--[' } }
+      class Adapter { constructor(adaptee) { this.adaptee = adaptee } request() { return `Adapter translates ${this.adaptee.specificRequest()}` } }
+      const run = () => {
+        const adaptee = new Adaptee()
+        const target = new Adapter(adaptee)
+        console.log(target.request())
+      }
+      document.getElementById('btn').addEventListener('click', run)
+    </script>
+  </body>
+  </html>
+

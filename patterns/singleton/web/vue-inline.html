@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vue + TypeScript Singleton Demo (Inline)</title>
+    <style>
+      body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+      .wrap { max-width: 900px; margin: 60px auto; text-align: center; }
+      h1 { font-weight: 600; color: #2c3e50; }
+      button { background: #64b687; color: #fff; border: 0; padding: 10px 16px; border-radius: 8px; cursor: pointer; }
+      button:hover { filter: brightness(0.95); }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module">
+      import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
+
+      class VueLazySingleton {
+        static instance = null;
+        constructor() {
+          console.log('✅ Singleton 인스턴스가 생성되었습니다.');
+        }
+        static getInstance() {
+          if (!VueLazySingleton.instance) {
+            VueLazySingleton.instance = new VueLazySingleton();
+          }
+          return VueLazySingleton.instance;
+        }
+        hello() {
+          console.log('안녕하세요! 저는 Singleton 인스턴스입니다 👋');
+        }
+      }
+
+      function now() { return new Date().toISOString(); }
+
+      const app = createApp({
+        setup() {
+          const title = ref('Vue + TypeScript Singleton Demo');
+          const onClick = () => {
+            const s1 = VueLazySingleton.getInstance();
+            s1.hello();
+            console.log(`[${now()}] 버튼 클릭으로 Singleton 사용!`);
+            const s2 = VueLazySingleton.getInstance();
+            console.log('같은 인스턴스인가요?', s1 === s2);
+          };
+          return { title, onClick };
+        },
+        template: `
+          <div class="wrap">
+            <h1>{{ title }}</h1>
+            <button @click="onClick">Singleton 테스트</button>
+          </div>
+        `,
+      });
+
+      app.mount('#app');
+    </script>
+  </body>
+  </html>
