@@ -19,8 +19,8 @@
 - `patterns/observer/node/src/index.ts`
 
 ## 캡처 저장 위치
-- 이미지는 `dosc/screenshots` 폴더에 저장하세요.
-  - 예) `dosc/screenshots/singleton.png`, `dosc/screenshots/adapter.png`
+- 이미지는 `docs/screenshots` 폴더에 저장하세요.
+  - 예) `docs/screenshots/singleton.png`, `docs/screenshots/adapter.png`
 
 ## 브라우저 실행(캡처용, 권장)
 - 각 패턴의 `web/inline.html` 더블클릭 → 개발자도구 Console에서 버튼 클릭 로그를 캡처
@@ -42,37 +42,37 @@
 - 변형: Eager, Static Block, Lazy, Module-level(ESM 캐시)
 - 열기: `patterns/singleton/web/vue-inline.html`
 - 콘솔 예: 생성 로그 → “같은 인스턴스인가요? true”
-- 스크린샷: `![Singleton](dosc/screenshots/singleton.png)`
+- 스크린샷: ![Singleton](docs/screenshots/singleton.png)
 
 ### 2) Factory Method
 - 의도: 객체 생성 책임을 서브클래스로 위임해 결합도 ↓ 확장성 ↑
 - 열기: `patterns/factory-method/web/inline.html`
 - 콘솔 예: `Creator worked with [A]`, `Creator worked with [B]`
-- 스크린샷: `![Factory Method](dosc/screenshots/factory-method.png)`
+- 스크린샷: ![Factory Method](docs/screenshots/factory-method.png)
 
 ### 3) Adapter
 - 의도: 호환되지 않는 인터페이스를 변환해 기존 코드를 재사용
 - 열기: `patterns/adapter/web/inline.html`
 - 콘솔 예: `Adapter translates ]--Legacy--[`
-- 스크린샷: `![Adapter](dosc/screenshots/adapter.png)`
+- 스크린샷: ![Adapter](docs/screenshots/adapter.png)
 
 ### 4) Decorator
 - 의도: 상속 없이 런타임에 기능을 합성/확장
 - 열기: `patterns/decorator/web/inline.html`
 - 콘솔 예: `B(A(Base))`
-- 스크린샷: `![Decorator](dosc/screenshots/decorator.png)`
+- 스크린샷: ![Decorator](docs/screenshots/decorator.png)
 
 ### 5) Observer
 - 의도: 주제(Subject)의 상태 변경을 구독자에게 통지
 - 열기: `patterns/observer/web/inline.html`
 - 콘솔 예: `A observed state=1`, `B observed state=1` … (버튼 누를 때마다 +1)
-- 스크린샷: `![Observer](dosc/screenshots/observer.png)`
+- 스크린샷: ![Observer](docs/screenshots/observer.png)
 
 ### 6) Visitor
 - 의도: 데이터 구조는 고정, 연산을 방문자 객체로 분리해 추가/교체 용이
 - 열기: `patterns/visitor/web/inline.html`
 - 콘솔 예: `Visited A`, `Visited B`
-- 스크린샷: `![Visitor](dosc/screenshots/visitor.png)`
+- 스크린샷: ![Visitor](docs/screenshots/visitor.png)
 
 ## Singleton 변형 상세
 - Eager: 클래스 로드 시 `private static readonly`로 즉시 생성. 단순/안정적, 미사용 메모리 점유 가능
@@ -84,5 +84,4 @@
 - 빈 화면: 개발자도구 Console 에러 확인(경로 404, CORS 등)
 - 파일 프로토콜 제한: 간단 서버로 열기(위 안내 참고)
 - Node 타입 에러: `npm i -D typescript @types/node` 후 재빌드
-
 
